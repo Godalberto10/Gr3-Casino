@@ -10,9 +10,6 @@
                 "/nologo",
                 "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "${workspaceFolder}/*.cpp",
-                "${workspaceFolder}/*.hpp",
-                "-I~${workspaceFolder}/include",
-                "-I~${workspaceFolder}/source",
                 "-I${workspaceFolder}",
                 "${file}"
             ],
