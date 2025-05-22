@@ -1,0 +1,42 @@
+--------------------------------------------------
+                   INFORME GENERAL                
+--------------------------------------------------
+| %10-s  cuenta con las siguientes estadisticas:              |carlos
+| Partidas jugadas totales:                     %10-d0
+|   Partidas jugadas de Wordle:       %4-d         |0
+|carlos cuenta con las siguientes estadisticas: |
+|   Partidas jugadas de Wordle:       0     |
+|   Victorias: 0
+|   Derrotas:  0
+
+|   Partidas jugadas de Ahorcado: 0
+|   Victorias:  0
+|   Derrotas:   0
+
+|    Partidas jugadas del BlackJack: 0
+|    Victorias: 0
+|    Empates:   0
+|    Derrotas:  0
+
+|    Partidas jugadas de los palillos: 0
+|     Victorias: 0|     Derrotas:  0
+|     Partidas jugadas de la Ruleta: 0
+|     Victorias: 0
+|     Derrotas:  0
+
+|     Partidas jugadas del TER:  0
+|     Victorias: 0
+|     Empates:   0
+|     Derrotas:  0
+
+|     Partidas jugadas de la Tragaperras: 0
+|     Victorias: 0
+|     Derrotas:  0
+
+|     Partidas jugadas Piedra papel tijera: 0
+|     Victorias: 0
+|     Empates:   0
+|     Derrotas:  0
+--------------------------------------------------
+|     ID:     1
+|     Saldo:  1000
