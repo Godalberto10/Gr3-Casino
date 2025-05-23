@@ -140,62 +140,7 @@
 			+ empatesBJ + empatesTER + victoriasPPT+empatesPPT+derrotaPPT;
 	}
 
-	/*Función encargada de crear un informe con las estadísticas del usuario que se mostrará en un txt
-	*/
-	void Usuario::informeDelUsuario() {
-		ofstream archivo;
-		archivo.open("informe" + nombre);
-		if (archivo.is_open()) {
-			archivo << "--------------------------------------------------" << endl;
-			archivo << "                   INFORME GENERAL                " << endl;
-			archivo << "--------------------------------------------------" << endl;
-			archivo << "| %10-s  cuenta con las siguientes estadisticas:              |" << nombre << endl;
-			archivo << "| Partidas jugadas totales:                     %10-d"<< partidasTotales() << endl;
-			archivo << "|   Partidas jugadas de Wordle:       %4-d         |" << derrotasW + victoriasW << endl;
-			archivo << "|" << nombre << " cuenta con las siguientes estadisticas: |" << endl;
-			archivo << "|   Partidas jugadas de Wordle:       " << derrotasW + victoriasW << "     |" << endl;
-			archivo << "|   Victorias: " << victoriasW << endl;
-			archivo << "|   Derrotas:  " << derrotasW << endl;
-			archivo << endl;
-			archivo << "|   Partidas jugadas de Ahorcado: " << derrotasAhorcado + victoriasAhorcado << endl;
-			archivo << "|   Victorias:  " << victoriasW << endl;
-			archivo << "|   Derrotas:   " << derrotasAhorcado << endl;
-			archivo << endl;
-			archivo << "|    Partidas jugadas del BlackJack: " << derrotasBJ+victoriasBJ+empatesBJ<< endl;
-			archivo << "|    Victorias: " << victoriasBJ << endl;
-			archivo << "|    Empates:   " << empatesBJ << endl;
-			archivo << "|    Derrotas:  " << derrotasBJ << endl;
-			archivo << endl;
-			archivo << "|    Partidas jugadas de los palillos: " << derrotasPalillos+victoriasPalillos<<endl;
-			archivo << "|     Victorias: " << victoriasPalillos;
-			archivo << "|     Derrotas:  " << derrotasPalillos;
-			archivo << endl;
-			archivo << "|     Partidas jugadas de la Ruleta: " << victoriasRule + derrotasRule << endl;
-			archivo << "|     Victorias: " << victoriasRule << endl;
-			archivo << "|     Derrotas:  " << derrotasRule << endl;
-			archivo << endl;
-			archivo << "|     Partidas jugadas del TER:  " << victoriasTER + empatesTER + derrotasBJ << endl;
-			archivo << "|     Victorias: " << victoriasTER << endl;
-			archivo << "|     Empates:   " << empatesTER << endl;
-			archivo << "|     Derrotas:  " << derrotasTER << endl;
-			archivo << endl;
-			archivo << "|     Partidas jugadas de la Tragaperras: " << victoriasTP + derrotasTP << endl;
-			archivo << "|     Victorias: " << victoriasTP << endl;
-			archivo << "|     Derrotas:  " << derrotasTP << endl;
-			archivo << endl;
-			archivo << "|     Partidas jugadas Piedra papel tijera: " << victoriasPPT + empatesPPT + derrotaPPT << endl;
-			archivo << "|     Victorias: " << victoriasPPT << endl;
-			archivo << "|     Empates:   " << empatesPPT << endl;
-			archivo << "|     Derrotas:  " << derrotaPPT << endl;
-			archivo << "--------------------------------------------------" << endl;
-			archivo << "|     ID:     " << id << endl;
-			archivo << "|     Saldo:  " << saldo << endl;
-			// PENDIENTE DE LA RESPUESTA DE IRINA PARA COMPLETAR EL FORMATO 50 caracteres son en total 
-		}
-		else
-			cout << "Ha habido un error creando el informe del usuario " << endl;
-		
-	}
+	
 
 	/*Función encargada de quitar el saldo de la cuenta a la hora de hacer una apesta
 	*/

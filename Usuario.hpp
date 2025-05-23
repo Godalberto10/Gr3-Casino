@@ -44,7 +44,6 @@ public:
 	void aumentaEmpatesTER();
 	void aumentaEmpatesPPT();
 	int partidasTotales();
-	void informeDelUsuario();
 	void apuesta(double cantidad);
 	void gananciaYannadirFondos(double cantidad);
 };

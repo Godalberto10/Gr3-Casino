@@ -70,6 +70,8 @@
 		}
 		return -1;
 	}
+	
+	
 	Usuario RegistroUsuario::buscarUsuario(int id) {
 		for (Usuario u : usuarios) {
 			if (u.getID() == id)
@@ -79,16 +81,16 @@
 		//return Usuario();
 	}
 
-	// NUEVO
 	/*
 	Usuario& RegistroUsuario::buscarUsuario(int id){
 		for (Usuario u : usuarios) {
 			if (u.getID() == id)
 				return u;
 		}
-		return runtime_error("Usuario no encontrado");
+		throw runtime_error("Usuario no encontrado");
 	}
 	*/
+	
 	
 	bool RegistroUsuario::compruebaID(int id) {
 		for (Usuario u : usuarios) {
