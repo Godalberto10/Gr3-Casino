@@ -19,15 +19,20 @@
 	}
 	void RegistroUsuario::cargaDatos() {
 		ifstream archivo;
-		int contador, id, edad;
+		int contador, id, edad, victoriasW, victoriasBJ, victoriasTP, victoriasTER, victoriasAhorcado, victoriasPalillos, victoriasRule, victoriasPPT,
+			derrotasW, derrotasBJ, derrotasTP, derrotasTER, derrotasAhorcado, derrotasPalillos, derrotasRule, derrotaPPT,
+			 empatesBJ, empatesTER, empatesPPT;
 		double saldo;
 		string nombre;
 		archivo.open("casino.txt");
 		if (archivo.is_open()) {
 			archivo >> contador;
 			for (int i = 0; i < contador; i++) {
-				archivo >> nombre >> edad >> id >> saldo; 
-				usuarios.emplace_back(nombre, edad, id, saldo); 
+				archivo >> nombre >> edad >> id >> saldo >> victoriasW >> victoriasBJ >> victoriasTP >> victoriasTER >> victoriasAhorcado >> victoriasPalillos >> victoriasRule
+					>> derrotasW >> derrotasBJ >> derrotasTP >> derrotasTER >> derrotasAhorcado >> derrotasPalillos >> derrotasRule
+					>> empatesBJ >> empatesTER >> victoriasPPT >> empatesPPT >> derrotaPPT; 
+				usuarios.emplace_back( nombre,  edad,  id,  saldo,  victoriasW,  derrotasW,  victoriasBJ,  derrotasBJ,  empatesBJ,  victoriasTP,
+						 derrotasTP,  victoriasTER,  derrotasTER,  empatesTER,  victoriasAhorcado,  derrotasAhorcado,  victoriasPPT,  empatesPPT,  derrotaPPT); 
 			}
 			archivo.close();
 		}

@@ -6,7 +6,7 @@ int JuegoPalillos :: pedirNumero(int min, int max) {
 		cout << "Introduzca un numero en el rango " << min << "-" << max << ": " << endl;
 		cin >> num;
 		if (num<min || num>max) {
-			cout << "Introduce un numero en el rango indicado" << endl;
+			cout << "Introduce un numero en el rango indicado " << endl;
 		}
 	} while (num < min || num > max);
 	return num;
@@ -39,7 +39,7 @@ void JuegoPalillos::jugar(Usuario u) {
 	while (jugarOtraVez == 1) {
 		cout << "Bienvenido al juego de los palillos" << endl;
 		do {
-			cout << "Introduzca la cantidad a apostar";
+			cout << "Introduzca la cantidad a apostar: ";
 			cin >> apuesta;
 		} while (u.getSaldo() < apuesta || apuesta < 0);
 		u.apuesta(apuesta);

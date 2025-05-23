@@ -128,7 +128,7 @@
 
 	bool BlackJack::volverAJugarDerrota() {
 		int opcion2;
-		cout << "Has perdido, quieres jugar otra vez? (1-Si/ Cualquier otro valor indica que no)" << endl;
+		cout << "Has perdido, quieres jugar otra vez? (1-Si/ Presiona cualquier numero para salir)" << endl;
 		try {
 			cin >> opcion2;
 		}
@@ -142,7 +142,7 @@
 
 	bool BlackJack::volverAJugarEmpate() {
 		int opcion2;
-		cout << "Has empatado, quieres jugar otra vez? (1-Si/ Cualquier otro valor indica que no)" << endl;
+		cout << "Has empatado, quieres jugar otra vez? (1-Si/ Presiona cualquier numero para salir)" << endl;
 		try {
 			cin >> opcion2;
 		}
@@ -156,7 +156,7 @@
 
 	bool BlackJack::volverAJugarVictoria() {
 		int opcion2;
-		cout << "Has ganado! quieres jugar otra vez? (1-Si/ Cualquier otro valor indica que no)" << endl;
+		cout << "Has ganado! quieres jugar otra vez? (1-Si/ Presiona cualquier numero para salir)" << endl;
 		try {
 			cin >> opcion2;
 		}

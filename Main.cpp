@@ -253,9 +253,10 @@ void muestraMenú2() {
 void muestraMenúUsuario() {
 	cout << "-------------------------------   Mi perfil    ------------------------------------------" << endl;
 	cout << "1. Generar informe" << endl;
-	cout << "2. Añadir fondos " << endl;
+	cout << "2. Anadir fondos " << endl;
 	cout << "3. Sacar dinero" << endl;
-	cout << "4. Volver al menu anterior" << endl;
+	cout <<"4. Ver saldo actual"<<endl;
+	cout << "5. Volver al menu anterior" << endl;
 }
 
 // N
@@ -302,8 +303,8 @@ void menu() {
 		{
 			cout << "Introduzca el ID del usuario:  " << endl;
 			cin >> id;
-			Usuario usuarioActual = listaUsuarios.buscarUsuario(id);
-			// Usuario& usuarioActual = listaUsuarios.buscarUsuario(id);
+			//Usuario usuarioActual = listaUsuarios.buscarUsuario(id);
+			Usuario& usuarioActual = listaUsuarios.buscarUsuario(id);
 			if (usuarioActual.getID() == -1) {
 				cout<<"El ID no existe, por favor registrese" << endl;
 				break;
@@ -323,22 +324,27 @@ void menu() {
 							cout << "Introduzca una cantidad: " << endl;
 							cin >> cantidad;
 							usuarioActual.gananciaYannadirFondos(cantidad);
+							listaUsuarios.escrituraDatos();
 							break;
 						case 3: 
 							cout << "Introduzca una cantidad: " << endl;
 							cin >> cantidad;
 							usuarioActual.apuesta(cantidad);
+							listaUsuarios.escrituraDatos();
 							break;
 						case 4:
+							cout << "Su saldo actual es: " << usuarioActual.getSaldo() << endl;
+							break;
+						case 5:
 							break;
 						}
-					} while (opcionPerfil != 4);
+					} while (opcionPerfil != 5);
 					break;
 				case 2:
 					do {
 						cout << "------------------------BIENVENIDO AL MENÚ DE JUEGOS-----------------------" << endl;
 						cout << "A que quieres jugar?" << endl;
-						cout << "1.Piedra Papel o Tijera \n2.Tres en raya \n3.Wordle \n4.Juego de los palillos \n5.Maquina Tragaperras \n6.Ruleta \n7.Bingo \n8.BlackJack \n9.Salir" << endl;
+						cout << "1.Piedra Papel o Tijera \n2.Tres en raya \n3.Wordle \n4.Juego de los palillos \n5.Maquina Tragaperras \n6.Ruleta \n7.Ahorcado \n8.BlackJack \n9.Salir" << endl;
 						cin >> opcionJuego;
 						switch (opcionJuego)
 						{
@@ -358,11 +364,13 @@ void menu() {
 						{
 							Wordle wordle;
 							wordle.jugar(usuarioActual);
+							break;
 						}
 						case 4:
 						{
 							JuegoPalillos palillos;
 							palillos.jugar(usuarioActual);
+							break;
 						}
 						case 5:
 						{
@@ -405,7 +413,7 @@ void menu() {
 
 			} while (opcion2 != 4);
 			//actualizar
-			// listaUsuarios.escrituraDatos();
+			 listaUsuarios.escrituraDatos();
 
 			break;
 		}

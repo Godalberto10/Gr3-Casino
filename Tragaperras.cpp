@@ -64,6 +64,9 @@ void Tragaperras :: jugar(Usuario u) {
       
    
     while (u.getSaldo() > 0) {
+        cout<<"--------------------------------------------------" << endl;
+        cout << "Bienvenido a la tragaperras. Tu saldo actual es: " << u.getSaldo() << " monedas\n";
+        cout << "--------------------------------------------------" << endl;
         cout << "\nIngresa tu apuesta o pulsa 0 para salir: ";
         cin >> apuesta;
         

@@ -55,7 +55,7 @@ vector<string> Ahorcado :: cargarPalabras(const string& nombreArchivo) {
 
 void Ahorcado :: jugarPartida(const vector<string>& palabras,Usuario u) {
     do {
-        cout << "Introduzca la cantidad a apostar";
+        cout << "Introduzca la cantidad a apostar: ";
         cin >> apuesta;
     } while (u.getSaldo() < apuesta || apuesta < 0);
     u.apuesta(apuesta);

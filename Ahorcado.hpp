@@ -13,7 +13,7 @@
 #include "Juego.hpp"
 using namespace std;
 
-class Ahorcado :public Juego {
+class Ahorcado : public Juego {
 private:
 
     string pal;
