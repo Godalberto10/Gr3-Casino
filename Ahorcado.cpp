@@ -1,15 +1,15 @@
 #include "Ahorcado.hpp"
 
 
-void Ahorcado :: jugar(Usuario u) {
-    vector<string> palabras = cargarPalabras("palabras_rae_l.txt");
+void Ahorcado :: jugar(Usuario u) { // método para iniciar el juego del ahorcado
+    vector<string> palabras = cargarPalabras("palabras_rae_l.txt"); // Cargar palabras desde el archivo
     if (palabras.empty()) {
         cout << "Error: No se pudieron cargar palabras desde el archivo." << endl;
 
     }
 
 
-    while (partidaActiva) {
+    while (partidaActiva) { // Bucle para mantener el juego activo
         vida = 6;
         pal = "";
         fallos = "";
@@ -22,7 +22,7 @@ void Ahorcado :: jugar(Usuario u) {
 
         switch (opcion1) {
         case '1':
-            jugarPartida(palabras, u);
+            jugarPartida(palabras, u);// Iniciar una partida de ahorcado
             break;
         case '2':
             partidaActiva = FALSE;
@@ -36,7 +36,7 @@ void Ahorcado :: jugar(Usuario u) {
     }
 }
 
-vector<string> Ahorcado :: cargarPalabras(const string& nombreArchivo) {
+vector<string> Ahorcado :: cargarPalabras(const string& nombreArchivo) { // Método para cargar palabras desde un archivo
     vector<string> palabras;
     ifstream archivo(nombreArchivo);
     string palabra;
@@ -53,7 +53,7 @@ vector<string> Ahorcado :: cargarPalabras(const string& nombreArchivo) {
     return palabras;
 }
 
-void Ahorcado :: jugarPartida(const vector<string>& palabras,Usuario u) {
+void Ahorcado :: jugarPartida(const vector<string>& palabras,Usuario u) { // Método para jugar una partida de ahorcado
     do {
         cout << "Introduzca la cantidad a apostar: ";
         cin >> apuesta;
@@ -114,13 +114,13 @@ void Ahorcado :: jugarPartida(const vector<string>& palabras,Usuario u) {
     cin >> opcion;
 }
 
-void Ahorcado :: clear() {
+void Ahorcado :: clear() {// Método para limpiar la pantalla
     if (system("cls") == -1) {
         cout << "Error al limpiar la pantalla" << endl;
     }
 }
 
-void Ahorcado :: dibujar() {
+void Ahorcado :: dibujar() {// Método para dibujar el estado del ahorcado según la cantidad de vidas restantes
     switch (vida) {
     case 6:
         cout << "  ---------" << endl;

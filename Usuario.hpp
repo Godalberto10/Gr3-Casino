@@ -6,7 +6,7 @@
 #include <fstream>
 using namespace std;
 class Usuario {
-private:
+private://Atributos
 	string nombre;
 	int edad, id, victoriasW, derrotasW, victoriasBJ, derrotasBJ, empatesBJ, victoriasTP, derrotasTP,
 		victoriasTER, derrotasTER, empatesTER, victoriasAhorcado, derrotasAhorcado,victoriasPPT,empatesPPT,derrotaPPT;
@@ -14,7 +14,7 @@ private:
 	double saldo;
 public:
 
-	Usuario(){};
+	Usuario(){};//Constructores
 
 	Usuario(string nombre, int edad, int id, double saldo);
 	Usuario(string nombre, int edad, int id, double saldo, int victoriasW, int derrotasW, int victoriasBJ, int derrotasBJ, int empatesBJ, int victoriasTP,
@@ -22,7 +22,7 @@ public:
 	
 	string getNombre();
 	double getSaldo();
-	string usuarioToString();
+	string usuarioToString();//Metodos y getters, explicados en el cpp
 	int getID();
 	void aumentaVictoriasW();
 	void aumentaVictoriasPPT();

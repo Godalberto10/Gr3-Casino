@@ -5,9 +5,9 @@
 
 class Juego{
 protected:
-	double apuesta;
+	double apuesta;//atributo
 public:
-	virtual void jugar(Usuario u) = 0;
+	virtual void jugar(Usuario u) = 0;//metodo que hace que jugar sea abstracta
 
 };
 

@@ -12,7 +12,7 @@
 using namespace std;
 class JuegoPalillos : public Juego {
 private:
-    enum class Turno { ORDENADOR, USUARIO };
+    enum class Turno { ORDENADOR, USUARIO };//Definimos un enum para los turnos del juego
     int num, max, numPalillos, jugarOtraVez, quitaPalillos;
     Turno turno;
 public:

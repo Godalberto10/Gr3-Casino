@@ -1,12 +1,10 @@
 #include "RegistroUsuario.hpp"
-
-#include "RegistroUsuario.hpp"
-	RegistroUsuario::RegistroUsuario() {
+	RegistroUsuario::RegistroUsuario() {//Constructor por defecto
 	}
 	vector <Usuario> RegistroUsuario::getUsuarios() {
-		return usuarios;
+		return usuarios;//devuelve la lista de usuarios registrados
 	}
-	void RegistroUsuario::escrituraDatos() {
+	void RegistroUsuario::escrituraDatos() {//Escribe los datos en casino.txt
 		ofstream archivo;
 		archivo.open("casino.txt");
 		if (archivo.is_open()) {
@@ -17,7 +15,7 @@
 		}else 
 			cout << "Error en la escritura de archivos" << endl;
 	}
-	void RegistroUsuario::cargaDatos() {
+	void RegistroUsuario::cargaDatos() {//Carga los datos del archivo casino.txt
 		ifstream archivo;
 		int contador, id, edad, victoriasW, victoriasBJ, victoriasTP, victoriasTER, victoriasAhorcado, victoriasPalillos, victoriasRule, victoriasPPT,
 			derrotasW, derrotasBJ, derrotasTP, derrotasTER, derrotasAhorcado, derrotasPalillos, derrotasRule, derrotaPPT,
@@ -25,7 +23,7 @@
 		double saldo;
 		string nombre;
 		archivo.open("casino.txt");
-		if (archivo.is_open()) {
+		if (archivo.is_open()) {//Reconstruye los objetos usuario con sus estadisticas de juego
 			archivo >> contador;
 			for (int i = 0; i < contador; i++) {
 				archivo >> nombre >> edad >> id >> saldo >> victoriasW >> victoriasBJ >> victoriasTP >> victoriasTER >> victoriasAhorcado >> victoriasPalillos >> victoriasRule
@@ -41,7 +39,7 @@
 	}
 
 	// NUEVO
-	int RegistroUsuario::generarNuevoID() {
+	int RegistroUsuario::generarNuevoID() {//Genera un nuevo ID de usuario
 		int maxID = 0;
 		for (Usuario u : usuarios) {
 			if (u.getID() > maxID)
@@ -53,17 +51,17 @@
 	
 	void RegistroUsuario::montaUsuario(string nombre, int edad, int id, double saldo) {
 		Usuario u(nombre, edad, id, saldo);
-		agregaUsuario(u);
+		agregaUsuario(u);//Crea y agrega un usuario a la lista
 	}
 
 	void RegistroUsuario::agregaUsuario(Usuario u) {
-		usuarios.push_back(u);
+		usuarios.push_back(u);//añade un usuario ya creado a usuarios
 	}
 
-	void RegistroUsuario::eliminarUsuario(Usuario u) {
+	void RegistroUsuario::eliminarUsuario(Usuario u) {//elimina a un usuario segun su ID
 		usuarios.erase(usuarios.begin() + buscarPosicionUsuario(u.getID()));
 	}
-	int RegistroUsuario::buscarPosicionUsuario(int id) {
+	int RegistroUsuario::buscarPosicionUsuario(int id) {//Busca la posicion de un usuario segun su ID
 		for (int i = 0; i < usuarios.size(); i++) {
 			if (usuarios[i].getID() == id)
 				return i;
@@ -72,7 +70,7 @@
 	}
 	
 	
-	Usuario RegistroUsuario::buscarUsuario(int id) {
+	Usuario RegistroUsuario::buscarUsuario(int id) {//Busca un usuario segun su ID
 		for (Usuario u : usuarios) {
 			if (u.getID() == id)
 				return u;
@@ -80,99 +78,11 @@
 		return {"",-1,-1,-1};
 		//return Usuario();
 	}
-
-	/*
-	Usuario& RegistroUsuario::buscarUsuario(int id){
-		for (Usuario u : usuarios) {
-			if (u.getID() == id)
-				return u;
-		}
-		throw runtime_error("Usuario no encontrado");
-	}
-	*/
 	
-	
-	bool RegistroUsuario::compruebaID(int id) {
+	bool RegistroUsuario::compruebaID(int id) {//Comprueba si existe el ID 
 		for (Usuario u : usuarios) {
 			if (u.getID() == id)
 				return true;
 		}
 		return false;
 	}
-
-	/*RegistroUsuario::RegistroUsuario() {}
-	vector <Usuario> RegistroUsuario::getUsuarios() {
-		return usuarios;
-	}*/
-	/*int RegistroUsuario::generarNuevoID() {
-		int maxID = 0;
-		for (Usuario u : usuarios) {
-			if (u.getID() > maxID)
-				maxID = u.getID();
-		}
-		return maxID + 1;
-	}
-	void RegistroUsuario::escrituraDatos() {
-		ofstream archivo;
-		archivo.open("casino.txt");
-		if (archivo.is_open()) {
-			archivo << usuarios.size() << endl;
-			for (Usuario u : usuarios)
-				archivo << u.usuarioToString() << endl;
-			archivo.close();
-		}else 
-			cout << "Error en la escritura de archivos" << endl;
-	}
-	void RegistroUsuario::cargaDatos() {
-		ifstream archivo;
-		int contador, id, edad;
-		double saldo;
-		string nombre;
-		archivo.open("casino.txt");
-		if (archivo.is_open()) {
-			archivo >> contador;
-			for (int i = 0; i < contador; i++) {
-				archivo >> nombre >> edad >> id >> saldo; 
-				usuarios.emplace_back(nombre, edad, id, saldo); 
-			}
-			archivo.close();
-		}
-		else
-			cout << "Error en la carga de datos " << endl;
-	}
-
-	
-	void RegistroUsuario::montaUsuario(string nombre, int edad, int id, double saldo) {
-		Usuario u(nombre, edad, id, saldo);
-		agregaUsuario(u);
-	}
-
-	void RegistroUsuario::agregaUsuario(Usuario u) {
-		usuarios.push_back(u);
-	}
-
-	void RegistroUsuario::eliminarUsuario(Usuario u) {
-		usuarios.erase(usuarios.begin() + buscarPosicionUsuario(u.getID()));
-	}
-	int RegistroUsuario::buscarPosicionUsuario(int id) {
-		for (int i = 0; i < usuarios.size(); i++) {
-			if (usuarios[i].getID() == id)
-				return i;
-		}
-		return -1;
-	}
-	Usuario RegistroUsuario::buscarUsuario(int id) {
-		for (Usuario u : usuarios) {
-			if (u.getID() == id)
-				return u;
-		}
-		return {"",-1,-1,-1};
-		//return Usuario();
-	}
-	bool RegistroUsuario::compruebaID(int id) {
-		for (Usuario u : usuarios) {
-			if (u.getID() == id)
-				return true;
-		}
-		throw invalid_argument("Este ID ya existe");
-	}*/

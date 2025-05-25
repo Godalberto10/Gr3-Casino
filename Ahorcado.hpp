@@ -28,7 +28,7 @@ private:
 
 public:
 
-    void jugar(Usuario u);
+    void jugar(Usuario u);// Método que inicia el juego de ahorcado
     vector<string> cargarPalabras(const string& nombreArchivo);
     void jugarPartida(const vector<string>& palabras,Usuario u);
     void clear();

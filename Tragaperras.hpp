@@ -16,8 +16,8 @@ class Tragaperras : public Juego {
 	private:
 		string carrete1, carrete2, carrete3;
 		
-		vector<string> simbolos = { "1", "2", "3", "4", "5" };
-		int premio, saldo = 300,apuesta;
+		vector<string> simbolos = { "1", "2", "3", "4", "5" };// Simbolos de la tragaperras
+		int premio, saldo = 300,apuesta;// Atributos de la clase Tragaperras
 	public:
 		
 		string girarCarrete();

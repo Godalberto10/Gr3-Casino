@@ -1,12 +1,12 @@
 #include "Casino.hpp"
 
 
-void Casino :: muestraMenú2() {
+void Casino :: muestraMenú2() {//Muestra las opciones principales
 	cout << "-------------------------------   CASINO    ------------------------------------------" << endl;
 	cout << "Que desea hacer? \n1-Ver mi perfil \n2-Jugar al casino\n3-Volver atras \n4-Salir" << endl;
 }
 
-void Casino :: muestraMenúUsuario() {
+void Casino :: muestraMenúUsuario() {//Permite al usuario gestionar su cuenta
 	cout << "-------------------------------   Mi perfil    ------------------------------------------" << endl;
 	cout << "1. Anadir fondos " << endl;
 	cout << "2. Sacar dinero" << endl;
@@ -15,7 +15,7 @@ void Casino :: muestraMenúUsuario() {
 }
 
 
-void Casino :: creaUsuario(RegistroUsuario &listaUsuarios) {
+void Casino :: creaUsuario(RegistroUsuario &listaUsuarios) {//Crea un nuevo usuario
 	string nombreU;
 	int edad;
 	double saldo;
@@ -24,7 +24,7 @@ void Casino :: creaUsuario(RegistroUsuario &listaUsuarios) {
 
 	cout << "Introduzca la edad del usuario: " << endl;
 	cin >> edad;
-	if (edad < 18)
+	if (edad < 18)//Debe de ser mayor de edad 
 		throw runtime_error("El usuario debe de ser mayor de edad");
 
 	int id = listaUsuarios.generarNuevoID();
@@ -37,7 +37,7 @@ void Casino :: creaUsuario(RegistroUsuario &listaUsuarios) {
 			cout << "Introduzca una cantidad lógica" << endl;
 	} while (saldo <= 0);
 
-	listaUsuarios.montaUsuario(nombreU, edad, id, saldo);
+	listaUsuarios.montaUsuario(nombreU, edad, id, saldo);//Se crea el usuario
 	listaUsuarios.escrituraDatos();
 }
 
@@ -47,8 +47,8 @@ void Casino :: menu() {
 	string nombreU;
 	RegistroUsuario listaUsuarios;
 	listaUsuarios.cargaDatos();
-	do {
-		cout << "-------------------------------BIENVENIDO AL CASINO------------------------------------------" << endl; // debe de ser 50 caracteres 
+	do {//Opciones
+		cout << "-------------------------------BIENVENIDO AL CASINO------------------------------------------" << endl; 
 		cout << "Que deseas hacer? (0-Salir,1-Iniciar Sesion,2-Registrarse,3-Eliminar Usuario)" << endl;
 		cin >> opcion;
 		switch (opcion) {
@@ -58,23 +58,23 @@ void Casino :: menu() {
 		{
 			cout << "Introduzca el ID del usuario:  " << endl;
 			cin >> id;
-			Usuario usuarioActual = listaUsuarios.buscarUsuario(id);
+			Usuario usuarioActual = listaUsuarios.buscarUsuario(id);//Se busca el usuario por su id
 			//Usuario& usuarioActual = listaUsuarios.buscarUsuario(id);
 			if (usuarioActual.getID() == -1) {
-				cout<<"El ID no existe, por favor registrese" << endl;
+				cout<<"El ID no existe, por favor registrese" << endl;//Si no se encuentra
 				break;
 			}
-			do {
+			do {//Si se encuentra el usuario
 				muestraMenú2();
 				cin >> opcion2;
 				switch (opcion2) {
-				case 1:
+				case 1://Para el menu de usuario
 					do {
 						muestraMenúUsuario();
 						cin >> opcionPerfil;
 						switch (opcionPerfil) {							
 					
-							
+						//Distintas configuraciones/Opciones que tiene el usuario
 						case 1:
 							cout << "Introduzca una cantidad: " << endl;
 							cin >> cantidad;
@@ -95,8 +95,8 @@ void Casino :: menu() {
 						}
 					} while (opcionPerfil != 4);
 					break;
-				case 2:
-					do {
+				case 2://Para el menu de juegos
+					do {//Los distintos juegos 
 						cout << "------------------------BIENVENIDO AL MENU DE JUEGOS-----------------------" << endl;
 						cout << "A que quieres jugar?" << endl;
 						cout << "1.Piedra Papel o Tijera \n2.Tres en raya \n3.Wordle \n4.Juego de los palillos \n5.Maquina Tragaperras \n6.Ruleta \n7.Ahorcado \n8.BlackJack \n9.Salir" << endl;
@@ -173,7 +173,7 @@ void Casino :: menu() {
 			break;
 		}
 
-		case 2:
+		case 2://Para crear un nuevo usuario
 			try {
 				creaUsuario(listaUsuarios);
 			}
@@ -184,7 +184,7 @@ void Casino :: menu() {
 				cout << "Error: " << e.what() << endl;
 			}
 			break;
-		case 3:
+		case 3://Para eliminar un usuario existente 
 			cout << "Introduzca el id del Usuario: " << endl;
 			cin >> id;
 			listaUsuarios.eliminarUsuario(listaUsuarios.buscarUsuario(id));
@@ -192,6 +192,6 @@ void Casino :: menu() {
 		default:
 			cout << "Elija una opcion valida" << endl;
 		}
-	} while (opcion != 0);
+	} while (opcion != 0);//Cierre del programa
 	listaUsuarios.escrituraDatos();
 }

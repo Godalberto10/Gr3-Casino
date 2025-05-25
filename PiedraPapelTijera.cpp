@@ -33,7 +33,7 @@ void PiedraPapelTijera::jugar(Usuario u) {
 				cout << "Tu elegiste: " << opciones[opcionJugador - 1] << endl; //Ya que el array empieza en 0
 				cout << "La maquina eligio: " << opciones[opcionMaquina - 1] << endl;
 
-				if (opcionJugador == opcionMaquina) {
+				if (opcionJugador == opcionMaquina) {// Si el jugador y la maquina eligen lo mismo
 					cout << "Empate!" << endl;
 					u.aumentaEmpatesPPT();
 					u.gananciaYannadirFondos(apuesta);

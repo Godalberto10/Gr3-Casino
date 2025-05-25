@@ -7,7 +7,7 @@
 #include "Usuario.hpp"
 #include "RegistroUsuario.hpp"
 #include "TresEnRaya.hpp"
-#include "Juego.hpp"
+#include "Juego.hpp"//Librerias
 #include "Wordle.hpp"
 #include "Ahorcado.hpp"
 #include "PiedraPapelTijera.hpp"
@@ -17,16 +17,16 @@
 #include "Tragaperras.hpp"
 using namespace std;
 
-class Casino {
+class Casino {//Clase que gestiona el casino
 
     private:
-        RegistroUsuario listaUsuarios;
+        RegistroUsuario listaUsuarios;//atributos
         Usuario usuarioActual;
         int opcionJuego;
         int opcionMenu;
         int opcionMenuUsuario;
 
-    public:
+    public://Metodos
         void menu();
         void muestraMenú2();
         void muestraMenúUsuario();

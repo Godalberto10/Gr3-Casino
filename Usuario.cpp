@@ -1,5 +1,5 @@
 #include "Usuario.hpp"
-	Usuario::Usuario(string nombre, int edad, int id, double saldo) {
+	Usuario::Usuario(string nombre, int edad, int id, double saldo) {//Consturctor 	ue inicializa al usuario con las estadisticas a 0
 			this->nombre = nombre;
 			this->edad = edad;
 			this->saldo = saldo;
@@ -53,20 +53,20 @@
 			this->derrotaPPT = derrotaPPT;
 	}
 	
-	string Usuario::getNombre() {
+	string Usuario::getNombre() {//Devuelve el nombre
 		return nombre;
 	}
-	double Usuario::getSaldo() {
+	double Usuario::getSaldo() {//Devuelve el saldo
 		return saldo;
 	}
-	string Usuario::usuarioToString() {
+	string Usuario::usuarioToString() {//Lo convierte en un string, se usa para guardar en casino.txt
 		return  nombre + " " + to_string(edad) + " " + to_string(id) + " " + to_string(saldo) + " " + to_string(victoriasW) + " " + to_string(victoriasBJ)
 			+ " " + to_string(victoriasTP) + " " + to_string(victoriasTER) + " " + to_string(victoriasAhorcado) + " " + to_string(victoriasPalillos)
 			+ " " + to_string(victoriasRule) + " " + to_string(derrotasW) + " " + to_string(derrotasBJ) + " " + to_string(derrotasTP) + " " + to_string(derrotasTER)
 			+ " " + to_string(derrotasAhorcado) + " " + to_string(derrotasPalillos) + " " + to_string(derrotasRule) + " " + to_string(empatesBJ) + " " +
 			to_string(empatesTER) + " " +to_string(victoriasPPT) + " " + to_string(empatesPPT) + " " + to_string(derrotaPPT);
 	}
-	int Usuario::getID() {
+	int Usuario::getID() {//Devuelve el id
 		return id;
 	}
 

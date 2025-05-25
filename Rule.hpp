@@ -13,9 +13,8 @@
 #include "Juego.hpp"
 using namespace std;
 class Rule : public Juego {
-    //Pequeños cambios de excepciones: Cada vez que se pone una respuesta diferente a las que te piden y salta la excepcion,
-    //da igual el paso en el que te encuentres (par impar, rojo negro) que te manda a empezar desde el princpio sin guardar los nuevos valores.
-private:
+    
+private://atributos
     int numeroRuleta, apuestaNumero = -1, montoNumero = 0, montoParImpar = 0, montoColor = 0, totalApuesta = 0, num;
     char opcionParImpar = ' ', opcionColor = ' ';
     bool apostarNumero, apostarParImpar, apostarColor;

@@ -3,13 +3,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <string>
+#include <string>//Librerias
 #include <vector>
 #include "Usuario.hpp"
 #include "Juego.hpp"
 using namespace std;
 const int T_DIC = 1390;
-enum Letra { CORRECTA, POSICION_INCORRECTA, INCORRECTA };
+enum Letra { CORRECTA, POSICION_INCORRECTA, INCORRECTA };//Dicionario de palabras de 5 letras
 const string diccionario[T_DIC] = { "abaco", "abajo", "abiel", "abono", "abren",
 	"abril", "abrir", "abuso", "acaba", "acabe", "acabo", "acaso", "acera", "acero",
 	"acoso", "acota", "actas", "actor", "actos", "acuda", "acude", "acusa", "adela",
@@ -169,13 +169,13 @@ const string diccionario[T_DIC] = { "abaco", "abajo", "abiel", "abono", "abren",
 };
 
 class Wordle : public Juego {
-private:
+private://Atributos
 	double apuesta;
 	bool jugarJ, acierto;
 	string palabra, palabraobjetivo;
 	string distribucion[5];
 	Letra marcado[5];
-public:
+public://metodos
 	void jugar(Usuario u);
 	string obtenerPalabraMarcada(Letra l[5], string palabra);
 	string compruebaPalabra(string palabra, string wordle, bool& acierto);

@@ -1,7 +1,6 @@
 #include "Rule.hpp"
 
 
-
 // Funcion para obtener el color del numero en la ruleta
 string Rule :: obtenerColor(int numero) {
 	if (numero == 0) return "verde";
@@ -25,13 +24,13 @@ void Rule :: jugar(Usuario u) {
 		cin >> respuesta;
 		if (respuesta == 's') {
 			cout << "Ingresa el numero por el que quieres apostar (0-36): ";
-			cin >> apuestaNumero;
+			cin >> apuestaNumero;//Escoges el numero
 			if (apuestaNumero < 0 || apuestaNumero > 36) {
 				cout << "Numero fuera de rango. Intentalo de nuevo." << endl;
 				continue;
 			}
 			cout << "Ingresa la cantidad a apostar en el numero: ";
-			cin >> montoNumero;
+			cin >> montoNumero;//Escoges la cantidad
 			if (montoNumero > u.getSaldo() || montoNumero < 0) {
 				cout << "Apuesta invalida. No tienes suficiente saldo." << endl;
 				continue;
@@ -100,7 +99,7 @@ void Rule :: jugar(Usuario u) {
 			cout << "Felicidades! Has acertado el numero y ganas el doble de tu apuesta." << endl;
 			u.gananciaYannadirFondos(montoNumero * 2);
 			
-		}
+		}//Todo se premia con el doble de lo apostado
 		if (apostarParImpar && ((opcionParImpar == 'p' && numeroRuleta % 2 == 0) || (opcionParImpar == 'i' && numeroRuleta % 2 != 0))) {
 			cout << "Ganaste! Acertaste la paridad y ganas el doble de tu apuesta." << endl;
 			u.gananciaYannadirFondos(montoParImpar * 2);
